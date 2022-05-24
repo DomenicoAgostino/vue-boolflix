@@ -26,7 +26,6 @@ export default {
     HeaderComp,
     MainComp,
 },
-
 data(){
     return{
       apiUrl: 'https://api.themoviedb.org/3/search/movie',
@@ -91,7 +90,6 @@ data(){
 
 <style lang="scss">
 @import './assets/style/general';
-
 #app{
   height: 100vh;
   background-color: black;
@@ -101,9 +99,7 @@ data(){
   background-color: black;
   color: white;
 }
-
 .text-standard{
   text-transform: uppercase;
 }
-
 </style>

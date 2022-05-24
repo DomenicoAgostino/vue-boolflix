@@ -9,8 +9,21 @@
       <div class="flip-card-back">
         <h4>{{ title }}</h4>
         <p>Titolo: {{ originalTitle }}</p>
-        <p>Lingua: {{language}}</p>
-        <p>Voto: {{ vote }}</p>
+
+        <div v-if="language == 'en'"><img class="b-lng" src="../assets/img/eng-lng.png" alt=""></div>
+        <div v-else-if="language == 'it'"><img class="b-lng" src="../assets/img/it-lng.png" alt=""></div>
+        <p v-else>Lingua: {{language}}</p>
+        <p>&starf;{{ vote }}</p>
+        <p class="overview">{{overview}}</p>
+
+
+        <div>
+          <span v-for="n in 5" :key="n">
+          <span v-if="voto >= n">&starf;</span>
+          <span v-else>&star;</span>
+          </span>
+        </div>
+        <p class="overview">{{overview}}</p>
       </div>
     </div>
   </div> 
@@ -23,6 +36,7 @@ export default {
   data(){
     return{
       urlImg: 'https://image.tmdb.org/t/p/w300',
+      voto: Math.round(this.vote / 2)
     }
   },
   props:{
@@ -31,6 +45,7 @@ export default {
       language: String,
       vote: Number,
       image: String,
+      overview: String,
     },
 }
 </script>
@@ -40,7 +55,7 @@ export default {
 .card{
   min-width: 250px;
   max-height: 100%;
-  margin: 5px;
+  margin: 7px;
   border: none;
   background-color: black;
 }
@@ -56,8 +71,14 @@ smv-card{
   }
   p{
     color: gray;
+    font-size: 12px;
+    overflow-y:auto;
   }
 }
+
+    span{
+    color: red;
+  }
 
 .flip-card-principal {
   position: relative;
@@ -90,6 +111,10 @@ smv-card{
     color: white;
     font-size: 20px;
     font-weight: 500;
+  }
+
+  .b-lng{
+    height: 20px;
   }
 }
 </style> 

@@ -60,4 +60,8 @@ export default {
     text-transform: uppercase;
     color: red;
   }
+
+    img{
+    cursor: pointer;
+  }
 </style>

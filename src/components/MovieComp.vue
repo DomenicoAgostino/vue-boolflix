@@ -1,8 +1,7 @@
 <template>
 
 <div class="container d-flex overflow-auto p-1">
-<CardComp v-for="( movie, index ) in listMovie" :key="index" :title="movie.title" :originalTitle="movie.original_title" :language="movie.original_language" :vote="movie.vote_average" :image='movie.poster_path'/>
-
+<CardComp v-for="movie in listMovie" :key="movie.id" :title="movie.title" :originalTitle="movie.original_title" :language="movie.original_language" :vote="movie.vote_average" :image='movie.poster_path' :overview="movie.overview"/>
 
   </div>
 </template>
